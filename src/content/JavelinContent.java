@@ -1,11 +1,14 @@
 package content;
 
+import arc.Core;
 import arc.graphics.Color;
+import arc.util.Log;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Blocks;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.LightningBulletType;
 import mindustry.entities.bullet.MissileBulletType;
+import mindustry.gen.Sounds;
 import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
@@ -17,27 +20,29 @@ public class JavelinContent
 
     public static void Load()
     {
-        javelin = new JavelinType("javelin")
+        javelin = new JavelinShipType("javelin-ship")
         {{
+            constructor = JavelinShipEntity::new;
             aiController = BuilderAI::new;
             isEnemy = false;
 
             flying = true;
-            mineSpeed = 24f;
+            mineSpeed = 8.2f;
             mineTier = 2;
             buildSpeed = 0.75f;
             drag = 0.05f;
             speed = 14.6f;
             rotateSpeed = 2.4f;
             accel = 0.02f;
-            itemCapacity = 50;
-            health = 420f;
+            itemCapacity = 60;
+            health = 320f;
             engineOffset = 6f;
             hitSize = 9f;
             faceTarget = true;
             lowAltitude = true;
 
-            emmitBullet = new LightningBulletType()
+            dischargeSound = Sounds.spark;
+            dischargeBullet = new LightningBulletType()
             {{
                 damage = 48f;
                 legCount = 8;
@@ -52,7 +57,9 @@ public class JavelinContent
                 shoot.shotDelay = 1.6f;
                 ejectEffect = Fx.casing1;
 
-                bullet = new MissileBulletType(3f, 140){{
+                shootSound = Sounds.missile;
+
+                bullet = new MissileBulletType(3f, 64){{
                     width = 7f;
                     height = 9f;
                     lifetime = 60f;
