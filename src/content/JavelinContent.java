@@ -1,8 +1,6 @@
 package content;
 
-import arc.Core;
 import arc.graphics.Color;
-import arc.util.Log;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Blocks;
 import mindustry.content.Fx;
@@ -44,8 +42,9 @@ public class JavelinContent
             dischargeSound = Sounds.spark;
             dischargeBullet = new LightningBulletType()
             {{
-                damage = 48f;
-                legCount = 8;
+                damage = 16f;
+                legCount = 6;
+                buildingDamageMultiplier = 0.6f;
             }};
 
             weapons.add(new Weapon("javelin-ship-launcher"){{
@@ -54,17 +53,19 @@ public class JavelinContent
                 x = 3f;
                 y = 0.5f;
                 rotate = false;
-                shoot.shotDelay = 1.6f;
+                shoot.shotDelay = 2.4f;
                 ejectEffect = Fx.casing1;
 
                 shootSound = Sounds.missile;
 
-                bullet = new MissileBulletType(3f, 64){{
-                    width = 7f;
-                    height = 9f;
-                    lifetime = 60f;
-                    homingRange = 48f;
-                    homingPower = 0.1f;
+                bullet = new MissileBulletType(3.6f, 16f){{
+                    width = 8f;
+                    height = 11f;
+                    lifetime = 96f;
+                    homingRange = 36f;
+                    homingPower = 0.2f;
+                    splashDamage = 32f;
+                    splashDamageRadius = 14.2f;
                     shootEffect = Fx.shootSmall;
                     buildingDamageMultiplier = 0.01f;
                     backColor = Pal.lancerLaser;

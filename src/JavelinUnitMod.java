@@ -1,14 +1,12 @@
 import arc.Core;
 import arc.input.InputProcessor;
 import arc.input.KeyCode;
-import arc.math.Rand;
 import content.JaveLib;
 import content.JavelinContent;
 import mindustry.mod.Mod;
 
 public class JavelinUnitMod extends Mod
 {
-    public static final Rand random = new Rand();
     public final InputProcessor javelinInputs = new InputProcessor() {
         @Override
         public boolean keyDown(KeyCode keycode) {
