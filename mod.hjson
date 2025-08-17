@@ -17,7 +17,7 @@ description: "Mindustry mod, that adds javelin unit to your game"
 version: 1.0
 
 #the minimum game build required to run this mod
-minGameVersion: 138
+minGameVersion: 145
 
 #this is a java mod
 java: true
